@@ -259,7 +259,7 @@
   <!-- ========== hero ========== -->
   <section class="hero">
     <h1>Hi, I'm <span class="mono">v</span></h1>
-    <p class="desc">ERP 客服 · 正在转向 AI 应用，关注大模型如何给传统企业业务带来真实价值。</p>
+    <p class="desc">ERP 技术支持 · 正在转向 AI 应用，关注大模型如何给传统企业业务带来真实价值。</p>
   </section>
 
   <!-- ========== 对话 ========== -->
@@ -274,8 +274,8 @@
 
       <div class="quick-qs">
         <button class="quick-q" data-q="你是谁？">你是谁？</button>
-        <button class="quick-q" data-q="你擅长什么？">你擅长什么？</button>
-        <button class="quick-q" data-q="最近在忙什么？">最近在忙什么？</button>
+        <button class="quick-q" data-q="你做过什么？">你做过什么？</button>
+        <button class="quick-q" data-q="最近在做什么？">最近在做什么？</button>
         <button class="quick-q" data-q="怎么联系你？">怎么联系你？</button>
       </div>
 
@@ -305,41 +305,45 @@
       "知识库还没覆盖到这块，过段时间再来问我？",
     ],
     "职业": [
-      "现在做 ERP 客服，每天跟企业系统和客户打交道。对 ERP、CRM 这块比较熟。",
+      "现在做 ERP 技术支持，每天跟企业系统和客户打交道。对 ERP、CRM 这块比较熟。",
     ],
     "忙什么": [
-      "最近在学 AI，想跟自己的 ERP / CRM 经验结合，做出能落地的商业 AI 项目。方向是智能客服、自动化报表、流程优化。",
+      "最近在学 AI，想跟自己的 ERP / CRM 经验结合，做出能落地的商业 AI 项目。方向是智能技术支持、自动化报表、流程优化。",
     ],
     "作品": [
       "目前还在搭建阶段，这个主页就是其中一个。后续会把 AI × 企业服务的 prototype 放上来。",
     ],
     "联系": [
-      "可以发邮件到 v@example.com，或者直接在聊天区留言，我会看到的。",
+      "可以发邮件到 <a href=\"mailto:15916289021@163.com\">15916289021@163.com</a>，或者在聊天区留言，我会看到的。",
     ],
     "你是谁": [
-      "我是 v 的 AI 助手。v 做 ERP 客服，擅长 ERP 和 CRM。最近在学 AI，想把 AI 和传统企业业务结合。爱好登山、游戏、AI。特点：逻辑强，嘴硬。",
+      "我是 v 的 AI 助手。v 做 ERP 技术支持，擅长 ERP 和 CRM。最近在学 AI，想把 AI 和传统企业业务结合。爱好登山、游戏、AI。特点：逻辑强，沟通直接。",
+    ],
+    "做过什么": [
+      "我现在是 ERP 技术支持，每天跟企业系统和客户打交道，对 ERP、CRM 比较熟。擅长用 AI 给传统企业赋能——大模型做智能技术支持、自动化流程、数据分析报表这些。",
     ],
     "擅长": [
-      "擅长 ERP 和 CRM 系统。关注 AI 给传统企业赋能——大模型做智能客服、自动化流程、数据分析报表。",
+      "擅长 ERP 和 CRM 系统。关注 AI 给传统企业赋能——大模型做智能技术支持、自动化流程、数据分析报表。",
     ],
     "兴趣": [
       "登山、游戏、AI 应用。户外+宅家+代码三线切换。",
     ],
     "特点": [
-      "逻辑思维强，立场坚定。朋友说叫嘴硬，我说叫思辨。",
+      "逻辑思维强，立场坚定。",
     ],
   };
 
   function matchAnswer(input) {
     const q = input.toLowerCase();
-    if (/职业|身份|做.*什么|是做/.test(q)) return knowledge["职业"];
     if (/最近|在干嘛|忙|现在干嘛/.test(q)) return knowledge["忙什么"];
+    if (/你做过什么|做过什么/.test(q)) return knowledge["做过什么"];
+    if (/职业|身份|做.*什么|是做/.test(q)) return knowledge["职业"];
     if (/作品|项目|成果/.test(q)) return knowledge["作品"];
     if (/联系|找到|微信|邮箱/.test(q)) return knowledge["联系"];
     if (/谁|你是|分身/.test(q)) return knowledge["你是谁"];
     if (/擅长|会|能力|方向/.test(q)) return knowledge["擅长"];
     if (/兴趣|爱好|喜欢/.test(q)) return knowledge["兴趣"];
-    if (/特点|性格|狡辩|嘴硬/.test(q)) return knowledge["特点"];
+    if (/特点|性格/.test(q)) return knowledge["特点"];
     return null;
   }
 
